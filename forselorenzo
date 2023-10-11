@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Storia Segreta di Lorenzo</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #feedback { color: red; font-weight: bold; margin-top: 20px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h1>La Storia Segreta di Lorenzo</h1>
+    
+    <div id="riddle1">
+        <p>Primo Indovinello: È l'inizio di Marco e la fine di Lorenzo. Che cos'è?</p>
+        <input type="text" id="answer1">
+        <button onclick="checkRiddle1()">Controlla</button>
+    </div>
+    
+    <div id="storyPart1" class="hidden">
+        <p>Lorenzo iniziò la sua avventura nel mondo degli affari...</p>
+        <button onclick="showRiddle2()">Prossimo</button>
+    </div>
+
+    <div id="riddle2" class="hidden">
+        <p>Secondo Indovinello: Non è visibile, ma lascia un segno, tutti ce l'hanno, ma è unico. Che cos'è?</p>
+        <input type="text" id="answer2">
+        <button onclick="checkRiddle2()">Controlla</button>
+    </div>
+
+    <div id="storyPart2" class="hidden">
+        <p>Ma il suo vero segreto era... Marco Micozzi, il suo mentore segreto!</p>
+    </div>
+
+    <p id="feedback"></p>
+
+    <script>
+        function checkRiddle1() {
+            const answer = document.getElementById("answer1").value.toLowerCase();
+            if (answer === "m") {
+                document.getElementById("riddle1").classList.add("hidden");
+                document.getElementById("storyPart1").classList.remove("hidden");
+            } else {
+                document.getElementById("feedback").textContent = "Riprova!";
+            }
+        }
+
+        function showRiddle2() {
+            document.getElementById("storyPart1").classList.add("hidden");
+            document.getElementById("riddle2").classList.remove("hidden");
+        }
+
+        function checkRiddle2() {
+            const answer = document.getElementById("answer2").value.toLowerCase();
+            if (answer === "impronta" || answer === "orologio") {
+                document.getElementById("riddle2").classList.add("hidden");
+                document.getElementById("storyPart2").classList.remove("hidden");
+            } else {
+                document.getElementById("feedback").textContent = "Riprova!";
+            }
+        }
+    </script>
+</body>
+</html>
